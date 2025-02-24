@@ -1,11 +1,12 @@
 import Link from "next/link";
+import { Wrapper, MainButton } from "./indexCss";
 
 export default function Home() {
   return (
-    <div>
+    <Wrapper>
       <Link href="/main">
-        <button>메인페이지로 이동</button>
+        <MainButton>메인페이지로 이동</MainButton>
       </Link>
-    </div>
+    </Wrapper>
   );
 }
