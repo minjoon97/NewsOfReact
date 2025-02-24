@@ -2,6 +2,9 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { fetchReactNews } from "./logic/fetchReactNews";
+import { GitHubRelease } from "@/shared/types/githubReleaseType";
+import ListItem from "./ui/ListItem";
+import { Wrapper } from "./indexCss";
 
 const MainPage = () => {
   const { data, isLoading, error } = useQuery({
@@ -14,10 +17,13 @@ const MainPage = () => {
 
   console.log(data);
   return (
-    <div>
-      {data[0].name}
-      {data[0].published_at}
-    </div>
+    <Wrapper>
+      <ul>
+        {data.map((v: GitHubRelease, i: number) => (
+          <ListItem key={i} listData={v}></ListItem>
+        ))}
+      </ul>
+    </Wrapper>
   );
 };
 
